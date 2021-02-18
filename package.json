@@ -1,0 +1,37 @@
+{
+  "name": "example-node-graphql",
+  "version": "1.0.0",
+  "description": "This a example to Real Time and graphql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js",
+    "dev": "nodemon start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrisRonda/graphql-express.git"
+  },
+  "keywords": [
+    "graphql",
+    "node",
+    "express",
+    "fun"
+  ],
+  "author": "Cristian Ronda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrisRonda/graphql-express/issues"
+  },
+  "homepage": "https://github.com/CrisRonda/graphql-express#readme",
+  "dependencies": {
+    "@babel/core": "7.12.17",
+    "@babel/polyfill": "6.26.0",
+    "@babel/preset-env": "7.12.17",
+    "@babel/register": "7.12.13",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.7"
+  }
+}
