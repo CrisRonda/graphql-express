@@ -1,10 +1,13 @@
 import express from "express";
-
+import bodyParser from "body-parser";
+// import "./db";
 const app = express();
 const port = 2345;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
-  res.send("Hola!");
+  res.send("Hola.....!");
 });
 
 app.listen(port, (err) => {
@@ -12,4 +15,4 @@ app.listen(port, (err) => {
   else console.log(`Corriendo en localhost:${port}`);
 });
 
-console.log("Ready!");
+console.log("Ready!", port);

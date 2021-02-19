@@ -1,3 +1,4 @@
 require("@babel/register")({});
+require("dotenv").config();
 
-module.exports = require("./index");
+module.exports = require("./src/index");
