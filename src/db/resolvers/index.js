@@ -14,7 +14,7 @@ const resolvers = {
       pubsub.publish("newCharacter", { newCharacter: character });
       return character;
     },
-    updateCharacter: async (_, { name, power, image, race }) => {
+    updateCharacter: async (_, { id, name, power, image, race }) => {
       const character = await Character.findOneAndUpdate(
         { _id: id },
         { name, power, image, race },
