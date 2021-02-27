@@ -2,8 +2,14 @@ import { GraphQLServer } from "graphql-yoga";
 import mongoose from "mongoose";
 import typeDefs from "./typesDef";
 import resolvers from "./resolvers";
+import express from "express";
+const DB =
+  express().get("env") === "development"
+    ? process.env.URL_DB
+    : "mongodb://mongo/mydatabase";
+
 mongoose
-  .connect("mongodb://mongo/mydatabase", {
+  .connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
