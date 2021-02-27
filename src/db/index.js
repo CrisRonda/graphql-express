@@ -2,9 +2,11 @@ import { GraphQLServer } from "graphql-yoga";
 import mongoose from "mongoose";
 import typeDefs from "./typesDef";
 import resolvers from "./resolvers";
-import express from "express";
+
+const port = process.env.PORTQL || 4000;
+
 const DB =
-  express().get("env") === "development"
+  process.env.NODE_ENV === "production"
     ? process.env.URL_DB
     : "mongodb://mongo/mydatabase";
 
@@ -18,6 +20,11 @@ mongoose
   .catch((err) => console.error(err));
 
 const server = new GraphQLServer({ typeDefs, resolvers });
+
 mongoose.connection.once("open", () =>
-  server.start(() => console.log("We make magic over at localhost:4000"))
+  server.start({ port }, (_server) =>
+    console.log(
+      `We make magic over at localhost:${_server.port} endpoint:${_server.endpoint}`
+    )
+  )
 );
