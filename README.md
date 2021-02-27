@@ -19,7 +19,7 @@ This examples is an backend of Graphql CRUD
 5. Fork and enjoy!
 
 # Font end 
-I had create an example with Angular you can fork project
+I created an example with Angular, you can fork the project [in my other repo](https://github.com/CrisRonda/dbz-angular)
 
 <img style="margin: 16px 0 4px" src='https://media.giphy.com/media/YroplJPYSFRdAug1YC/giphy.gif'/>
 
