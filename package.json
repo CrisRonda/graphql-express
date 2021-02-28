@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This a example to Real Time and graphql",
   "main": "index.js",
+  "engines": {
+    "node": "12.18.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node start.js",

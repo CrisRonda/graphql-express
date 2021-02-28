@@ -2,13 +2,11 @@ import { GraphQLServer } from "graphql-yoga";
 import mongoose from "mongoose";
 import typeDefs from "./typesDef";
 import resolvers from "./resolvers";
+import options from "./options";
 
-const port = process.env.PORTQL || 4000;
-
-const DB =
-  process.env.NODE_ENV === "production"
-    ? process.env.URL_DB
-    : "mongodb://mongo/mydatabase";
+const DB = process.env.NODE_ENV
+  ? process.env.URL_DB
+  : "mongodb://mongo/mydatabase";
 
 mongoose
   .connect(DB, {
@@ -16,13 +14,16 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then((db) => console.log("conected!", db.connection.host))
-  .catch((err) => console.error(err));
+  .then(() => console.log("conected database!"))
+  .catch((err) => console.error("error database", err));
 
 const server = new GraphQLServer({ typeDefs, resolvers });
-
+server.express.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 mongoose.connection.once("open", () =>
-  server.start({ port }, (_server) =>
+  server.start(options, (_server) =>
     console.log(
       `We make magic over at localhost:${_server.port} endpoint:${_server.endpoint}`
     )
