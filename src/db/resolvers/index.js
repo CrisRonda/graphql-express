@@ -5,6 +5,8 @@ const pubsub = new PubSub();
 const resolvers = {
   Query: {
     character: () => Character.find(),
+    charactersByName: (_, { limit = 40, name }) =>
+      Character.find({ name: { $regex: name } }).limit(limit),
   },
 
   Mutation: {

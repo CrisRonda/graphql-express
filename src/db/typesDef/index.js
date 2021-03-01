@@ -1,6 +1,7 @@
 const typeDefs = `
   type Query {
     character: [Character]
+    charactersByName(limit:Int, name: String!): [Character]
   }
   type Character {
     id: ID!
