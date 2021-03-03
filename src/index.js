@@ -1,8 +1,8 @@
 import { GraphQLServer } from "graphql-yoga";
 import mongoose from "mongoose";
-import typeDefs from "./typesDef";
-import resolvers from "./resolvers";
-import options from "./options";
+import typeDefs from "./db/typesDef";
+import resolvers from "./db/resolvers";
+import options from "./db/options";
 
 const DB = process.env.NODE_ENV
   ? process.env.URL_DB
