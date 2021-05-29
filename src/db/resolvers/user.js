@@ -1,18 +1,8 @@
 import bcript from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { validateLoginInputs, validationRegisterInputs } from "../errors/user";
+import { generateToken } from "../jwt";
 import User from "../models/User";
 
-const generateToken = ({ id, email, username }) =>
-  jwt.sign(
-    {
-      id: id,
-      email: email,
-      username: username,
-    },
-    process.env.SECRET,
-    { expiresIn: "24 days" }
-  );
 const createUserInDB = async ({
   username,
   passsword,

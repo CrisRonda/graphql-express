@@ -17,7 +17,13 @@ mongoose
   .then(() => console.log("conected database!"))
   .catch((err) => console.error("error database", err));
 
-const server = new GraphQLServer({ typeDefs, resolvers });
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
+  context: (req) => ({
+    ...req,
+  }),
+});
 server.express.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
