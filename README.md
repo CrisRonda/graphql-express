@@ -1,7 +1,13 @@
 # Graphql and Express  &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-
 This examples is an backend of Graphql CRUD
+
+# How to test in production
+1. Go to [site to test api](https://www.graphqlbin.com/v2/new)
+2. Add URL service: **https://salty-escarpment-98757.herokuapp.com/** 
+3. Add queries that are at the bottom
+
+
 [See the proyect](https://crisronda.github.io/dbz-angular/dbz/) 
 
 # Libraries & Tech
